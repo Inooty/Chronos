@@ -1,0 +1,7 @@
+res://Scenes/Rooms/test_sceme.tscn
+res://Scenes/Player/player.gd
+res://Scenes/Player/player.tscn
+res://Scenes/Collectables/moonstone.tscn
+res://Scenes/Collectables/moonstone.gd
+res://Scenes/Utilities/tiles.tscn
+res://Scenes/Utilities/tiles-bg.tscn

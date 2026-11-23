@@ -1,0 +1,15 @@
+Parallax2D
+Sprite2D
+TileMapLayer
+Area2D
+AnimationPlayer
+AudioStreamPlayer2D
+CPUParticles2D
+CollisionShape2D
+CharacterBody2D
+AnimatedSprite2D
+GPUParticles2D
+CanvasLayer
+ColorRect
+RigidBody2D
+Polygon2D
