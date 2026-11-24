@@ -4,6 +4,8 @@ extends Area2D
 @onready var sound: AudioStreamPlayer2D = $Collection
 
 var collected := false
+var value: int = 1
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 

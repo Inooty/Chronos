@@ -5,6 +5,14 @@ extends CharacterBody2D
 @onready var crouchbox: CollisionShape2D = $CrouchHitbox
 @onready var animplayer: AnimationPlayer = $AnimationPlayer
 @onready var jumpsfx: AudioStreamPlayer2D = $JumpSFX
+@onready var hit: AudioStreamPlayer2D = $Hit
+
+signal health_changed(new_health: int)
+
+const max_health = 3
+var health := max_health
+var invincible := false
+var hurt := false
 
 const speed = 125
 const crouch_speed = 60
@@ -21,6 +29,48 @@ func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == "recovery":
 		landing = false
 
+func take_damage(amount: int = 1, hitter_velocity: Vector2 = Vector2.ZERO) -> void:
+	if invincible:
+		return
+	health -= amount
+	health_changed.emit(health)
+	if health <= 0:
+		die()
+		return
+
+	invincible = true
+	hurt = true
+
+	if velocity.length() > 20.0:
+		velocity = -velocity
+	elif hitter_velocity.length() > 20.0:
+		velocity = hitter_velocity
+	else:
+		velocity = Vector2(-150.0 if not animloader.flip_h else 150.0, -150.0)
+
+	velocity = velocity.limit_length(250.0)
+	animloader.play("hit")
+	hit.play()
+	animplayer.play("recovery")
+
+	await get_tree().create_timer(0.3).timeout
+	hurt = false
+
+	var tween := create_tween().set_loops(5)
+	tween.tween_property(animloader, "modulate:a", 0.3, 0.1)
+	tween.tween_property(animloader, "modulate:a", 1.0, 0.1)
+	await tween.finished
+	animloader.modulate.a = 1.0
+	invincible = false
+
+
+func die() -> void:
+	set_physics_process(false)
+	animloader.play("die")
+	animplayer.play("recovery")
+	hit.play()
+	await get_tree().create_timer(1.0).timeout
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	var was_on_floor := is_on_floor()
@@ -30,6 +80,9 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("crouch"):
 			g *= 2
 		velocity += g * delta
+	if hurt:
+		move_and_slide()
+		return
 
 	var direction := Input.get_axis("left", "right")
 	var crouching := Input.is_action_pressed("crouch") and is_on_floor()

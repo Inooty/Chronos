@@ -10,11 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://bb8qlx1d1tn2j" path="res://Assets/Player/crouchwalk.png" id="5_7g0yx"]
 [ext_resource type="Texture2D" uid="uid://biqcxhrvet3ss" path="res://Assets/Player/playerhit2.png" id="5_74mp2"]
 [ext_resource type="Texture2D" uid="uid://rarq7orajt8y" path="res://Assets/Player/crouchwalk2.png" id="6_dey5f"]
+[ext_resource type="Texture2D" uid="uid://bgiptg3lduxa3" path="res://Assets/Player/playerdie1.png" id="7_aqm4k"]
 [ext_resource type="Texture2D" uid="uid://ccvhve7xpny14" path="res://Assets/Player/dinojump.png" id="8_74mp2"]
 [ext_resource type="Texture2D" uid="uid://dm0c7h51bkc7y" path="res://Assets/Player/dinowalk1.png" id="8_oikmp"]
+[ext_resource type="Texture2D" uid="uid://cwgphtnctu4bh" path="res://Assets/Player/playerdie2.png" id="8_rcvs5"]
 [ext_resource type="Texture2D" uid="uid://cwqjl7xbocgt0" path="res://Assets/Player/dinowalk2.png" id="9_06tpx"]
+[ext_resource type="Texture2D" uid="uid://bqyutfahm2tan" path="res://Assets/Player/playerdie3.png" id="9_h8ma5"]
 [ext_resource type="Texture2D" uid="uid://ddtp2l62wurlk" path="res://Assets/Player/dinojump2.png" id="9_oikmp"]
 [ext_resource type="AudioStream" uid="uid://cjtppfgmaisgr" path="res://Assets/SFX/jump.wav" id="15_dey5f"]
+[ext_resource type="AudioStream" uid="uid://dsc7rqal6sh2" path="res://Assets/SFX/die.wav" id="16_r5xpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ig7e"]
 size = Vector2(13, 18)
@@ -48,6 +52,20 @@ animations = [{
 "loop": 1,
 "name": &"crouchwalk",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_aqm4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rcvs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h8ma5")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -209,8 +227,10 @@ shape = SubResource("RectangleShape2D_7g0yx")
 [node name="Player" type="AnimatedSprite2D" parent="." unique_id=861269192]
 material = SubResource("ShaderMaterial_y2qpd")
 sprite_frames = SubResource("SpriteFrames_ecn3p")
-animation = &"walk"
+animation = &"die"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.5796098
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011433339]
 libraries/ = SubResource("AnimationLibrary_r5xpd")
@@ -222,3 +242,6 @@ position_smoothing_enabled = true
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=777619459]
 stream = ExtResource("15_dey5f")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=546249151]
+stream = ExtResource("16_r5xpd")
