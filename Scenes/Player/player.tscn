@@ -224,7 +224,7 @@ visible = false
 position = Vector2(-0.75, 4.5)
 shape = SubResource("RectangleShape2D_7g0yx")
 
-[node name="Player" type="AnimatedSprite2D" parent="." unique_id=861269192]
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=861269192 groups=["player"]]
 material = SubResource("ShaderMaterial_y2qpd")
 sprite_frames = SubResource("SpriteFrames_ecn3p")
 animation = &"die"

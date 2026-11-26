@@ -14,6 +14,12 @@ config/name="Chronos"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*uid://bdxbhid4q2imt"
+RoomState="*uid://68gxwbhf4ke7"
+RoomManager="*uid://dj2xrju0e3fb7"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -30,6 +36,10 @@ folder_colors={
 "res://Assets/Player/": "blue",
 "res://Scenes/": "purple"
 }
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -56,6 +66,11 @@ crouch={
 dash={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

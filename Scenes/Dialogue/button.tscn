@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://41dpyy4p5efw"]
+
+[ext_resource type="FontFile" uid="uid://cg2uf7ipdgrim" path="res://Assets/Fonts/Vaticanus.ttf" id="1_t5xjd"]
+
+[node name="Button" type="Button" unique_id=823192413]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("1_t5xjd")
+flat = true

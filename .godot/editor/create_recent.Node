@@ -1,10 +1,10 @@
+TileMapLayer
 AudioStreamPlayer2D
 AnimationPlayer
 Area2D
 Sprite2D
 CollisionShape2D
 Parallax2D
-TileMapLayer
 CPUParticles2D
 CharacterBody2D
 AnimatedSprite2D

@@ -9,13 +9,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
 size = Vector2(8, 8)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
-shader = ExtResource("1_fh8au")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hmd2"]
-size = Vector2(1, 1)
+size = Vector2(2.5061436, 1.2841284)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("1_fh8au")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
 shader = ExtResource("1_fh8au")
 
 [sub_resource type="Animation" id="Animation_7iyru"]
@@ -104,7 +104,7 @@ tracks/0/path = NodePath("Bullet:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.16666667, 3.8333333),
+"times": PackedFloat32Array(0.16666667, 3.7333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 1), Vector2(-240, 1)]
@@ -116,10 +116,10 @@ tracks/1/path = NodePath("Bullet:scale")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.16666667, 1.8333334, 2.9666667, 3.1333334, 3.6, 3.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.16666667, 1.8333334, 2.9666667, 3.1333334, 3.4666667, 3.6, 3.7333333, 3.9, 4.0333333, 4.1666665, 4.3, 4.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.06085241, 0.077793896), Vector2(1, 1), Vector2(1, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0.376, 0.963), Vector2(2.205, 1.875), Vector2(1, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -183,21 +183,22 @@ disable_mode = 2
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_ecn3p")
 
-[node name="Shooter" type="Sprite2D" parent="." unique_id=347700764]
-material = SubResource("ShaderMaterial_y2qpd")
-texture = ExtResource("2_7iyru")
-
 [node name="Bullet" type="Area2D" parent="." unique_id=585237984]
 position = Vector2(0, 1)
 script = ExtResource("3_7iyru")
 metadata/_edit_group_ = true
 
 [node name="BulletCollision" type="CollisionShape2D" parent="Bullet" unique_id=1145333185]
+position = Vector2(-0.75307274, -0.14206415)
 shape = SubResource("RectangleShape2D_1hmd2")
 
 [node name="Bullet" type="Sprite2D" parent="Bullet/BulletCollision" unique_id=1747919329]
 material = SubResource("ShaderMaterial_ecn3p")
 texture = ExtResource("3_8tff4")
+
+[node name="Shooter" type="Sprite2D" parent="." unique_id=347700764]
+material = SubResource("ShaderMaterial_y2qpd")
+texture = ExtResource("2_7iyru")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1268958512]
 libraries/ = SubResource("AnimationLibrary_ute2w")

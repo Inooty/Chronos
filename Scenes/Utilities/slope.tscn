@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cfair8dq3xf2e"]
+
+[ext_resource type="Texture2D" uid="uid://buu0sn8q6cbwi" path="res://Assets/Tiles/brick-slope.png" id="1_qko7x"]
+[ext_resource type="Shader" uid="uid://dcc0av6s1kalv" path="res://Assets/Shaders/lighting.gdshader" id="1_s1qmj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf422"]
+shader = ExtResource("1_s1qmj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1qmj"]
+texture = ExtResource("1_qko7x")
+texture_region_size = Vector2i(16, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -8, -4, 8, -4, 8, 4, -8, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, -4, 8, 4, -8, 4)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -8, -4, 8, -4, -8, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -8, -4, 8, 4, -8, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 4)
+
+[sub_resource type="TileSet" id="TileSet_ecn3p"]
+tile_size = Vector2i(16, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_s1qmj")
+
+[node name="Slope" type="TileMapLayer" unique_id=19870184]
+material = SubResource("ShaderMaterial_uf422")
+tile_set = SubResource("TileSet_ecn3p")

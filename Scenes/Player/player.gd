@@ -22,6 +22,7 @@ var landing := false
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	animplayer.animation_finished.connect(_on_anim_finished)
 
 
